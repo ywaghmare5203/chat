@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TradeX</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div class="container">
+      <% if current_user %>
+        Signed in as <%= current_user.fullName %> | <%= link_to "Logout", logout_path %>
+      <% else %>
+        <%= link_to 'Login', new_session_path %> | <%= link_to 'Signup', new_user_path %>
+      <% end %>
+	</div>
+    <%= yield %>
+  </body>
+</html>
